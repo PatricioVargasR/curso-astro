@@ -1,0 +1,41 @@
+---
+import Header from '../components/Header.astro';
+
+interface Props { // Typescript - Los datos, propiedades para poder utilizarse
+	// Se declara una variable con el tipo de dato esperado para poder recuperarlo y leerlo
+	title: string;
+}
+
+// Se crea una constante y se indica de donde se obtendrá ese dato
+// Astro es una variable global que funciona en todos los archivos .astro
+const { title } = Astro.props;
+---
+<!-- Layout: componentes especiales para envolver parte de nuestra aplicación -->
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-gray-900 min-h-screen pb-32">
+		<Header /> <!-- Mover componentes al Layout si se quiere reutilizar como el footer, barra lateral, etc -->
+		<main class="max-w-5xl px-4 m-auto">
+			<slot /> <!-- Componente que se estará cambiando por el Layout -->
+		</main>
+	</body>
+</html>
+<!-- Estilos globales de la aplicación -->
+<!-- Uso de directivas CSS para indicar funciones especiales como la indicación de estilos globales con is:global -->
+<style is:global>
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+		color-scheme: dark light; /* Le decimos que por defecto utilizaremos el modo oscuro y todos los colores se adecuen */
+	}
+
+</style>

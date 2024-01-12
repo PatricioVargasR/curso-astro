@@ -1,0 +1,18 @@
+---
+// Bloque en donde se puede escribir el JavaScript/TypeScript delimitado por tres guiones
+// Se escribr los imports de los componentes, fetching de datos, props
+// Para recuperar los componentes se deben de importar de esta manera, sin hacer funciones
+import Layout from '../layouts/Layout.astro';
+import Launches from '../components/Launches.astro';
+---
+
+<!-- El HTML que se va a renderizar -->
+<!-- Al componente de layouts se le pasa una propiedad que se estará almacenando en las props-->
+<Layout title="SpaceX Launches 🚀 "> <!-- Componente que envuelve a todo el contenido que se va a renderizar -->
+		<!-- Cambiamos al Header de ubicación para poder reutilizarlo -->
+
+		<Launches />
+</Layout>
+
+<!-- Estilos con Scoup, es decir, que solo se utilizan en este archivo -->
+<!-- <style></style> -->
