@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props { // Typescript - Los datos, propiedades para poder utilizarse
 	// Se declara una variable con el tipo de dato esperado para poder recuperarlo y leerlo
@@ -20,6 +21,7 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
 	<body class="bg-gray-900 min-h-screen pb-32">
 		<Header /> <!-- Mover componentes al Layout si se quiere reutilizar como el footer, barra lateral, etc -->
